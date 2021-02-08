@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/foryou_nav"
+    app:startDestination="@id/diariesPage">
+
+    <fragment
+        tools:layout="@layout/page_diaries_layout"
+        android:id="@+id/diariesPage"
+        android:name="com.szhua.foryou.pages.DiariesPage"
+        android:label="DiariesPage" >
+        <action
+            android:id="@+id/action_diariesPage_to_diaryDetailPage"
+            app:destination="@id/diaryDetailPage"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_diariesPage_to_favDiaryPage"
+            app:destination="@id/favDiaryPage" />
+    </fragment>
+
+
+    <fragment
+        tools:layout="@layout/page_diary_detail_page"
+        android:id="@+id/diaryDetailPage"
+        android:name="com.szhua.foryou.pages.DiaryDetailPage"
+        android:label="DiaryDetailPage" >
+
+        <argument
+            android:name="objectId"
+            app:argType="string"
+            />
+        <action
+            android:id="@+id/action_diaryDetailPage_to_favDiaryPage"
+            app:destination="@id/favDiaryPage" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/favDiaryPage"
+        tools:layout="@layout/page_fav_diaries_layout"
+        android:name="com.szhua.foryou.pages.FavDiaryPage"
+        android:label="FavDiaryPage" />
+
+
+</navigation>
